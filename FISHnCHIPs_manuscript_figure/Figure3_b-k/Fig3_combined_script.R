@@ -85,14 +85,14 @@ dev.off()
 
 
 ### Plotting cluster size correlation between MERFISH and FISHnCHIPs 
-data <- read.csv("./input_files/Lm67_ClusterSize_Comparison_0421_subtract.csv")
+data <- read.csv("./input_files/MERFISH_vs_FISHnCHIPs_comparison.csv")
 rownames(data) <- data$Celltype
 # data$Celltype <- NULL
 # View(data)
 row_sub = apply(data, 1, function(row) all(row !=0 ))
 
 
-data[row_sub,] %>% ggplot(aes(x = capFISH, y = MERFISH)) + geom_point() +
+data[row_sub,] %>% ggplot(aes(x = FISHnCHIPs, y = MERFISH)) + geom_point() +
   geom_point() + 
   # scale_x_continuous(limits=c(0, 0.6)) +
   # scale_y_continuous(imits=c(0, 0.6)) +
